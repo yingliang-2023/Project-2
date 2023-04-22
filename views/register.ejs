@@ -1,7 +1,7 @@
 
 <%- include("header"); -%>
-
-    <h1>Please Sign Up</h1>
+<div class="form">
+    <h1>Please Create Your Profile</h1>
     <form class="" action="/register" method="post">
       <div class="form-group">
         <label>Username</label>
@@ -9,10 +9,10 @@
         <label>Password</label>
         <input class=" form-control-sm" type="password" name="password" rows="5" cols="30">
         <label>Bio</label>
-        <textarea class=" form-control-sm" name="bio" rows="15" cols="80"></textarea>
+        <textarea class=" form-control-sm" name="bio" rows="10" cols="50"></textarea>
       </div>
       <button class="btn btn-primary" type="submit" name="button">Register</button>
     </form>
 
-
+  </div>
 <%- include("footer"); -%>

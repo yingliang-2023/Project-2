@@ -1,20 +1,12 @@
 
 <%- include("header"); -%>
 
+<div class="welcome">
+    <h1><%= home_title %></h1>
+    <p> <h5><%= welcomeContent %> </h5></p>
 
-    <h1>Home</h1>
-    <p> <%= welcomeContent %> </p>
+</div>
+ 
 
-
- <%  user.forEach(function(user){ %>
-
-    <h1><%=user.username%></h1>
-    <p>
-        <%=user.bio%>
-    <a href="/userprofile/<%=user.username%>">Read More</a>
-    </p>
-
-
-    <% }) %>
 
 <%- include("footer"); -%>
