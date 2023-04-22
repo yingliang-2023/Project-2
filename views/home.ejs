@@ -1,0 +1,21 @@
+
+<%- include("header"); -%>
+
+
+    <h1>Home</h1>
+    <p> <%= startingContent %> </p>
+
+
+ <%  user.forEach(function(user){ %>
+
+    <h1><%=user.username%></h1>
+    <p>
+    <%=user.bio.substring(0, 100) + " ..."%>
+    <a href="/userprofile/<%=user.username%>">Read More</a>
+    </p>
+
+
+    <% }) %>
+
+<%- include("footer"); -%>
+
