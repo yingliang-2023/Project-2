@@ -1,0 +1,21 @@
+
+<%- include("header"); -%>
+      
+    <h1> <%= title %></h1>
+    <table></table>
+    <%  user.forEach(function(user){ %>
+        
+        
+        <tr>
+            <td>
+        <h4><%=user.username%></h4>
+    </td>
+    </tr>
+    <% }) %>
+    </table>
+    
+    
+       
+
+<%- include("footer"); -%>
+

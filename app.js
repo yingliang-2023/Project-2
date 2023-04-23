@@ -5,7 +5,11 @@ const mongoose = require('mongoose');
 const session=require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
-
+const auth = require("http-auth");
+const path = require("path");
+const basic = auth.basic({
+  file: path.join(__dirname,"./users.htpasswd"),
+});
 
 const welcomeContent = "Hello! Welcome To Web Development Bootcamp Family! If you do not alreay have a profile, please register now and start to log your web development journey!";
 const aboutContent = "Prepare for an exciting career as a full stack web developer with a Coding Bootcamp Certificate from Westcliff University. Students learn today’s cutting-edge web development technologies taught by Westcliff’s professors. The program offers a fully immersive live online learning experience where students will gain proficiency in front end and back end web development technologies: HTML5, CSS3, Javascript ES6, Git, Github, MongoDB, Express, ReactJS, NodeJS, etc.";
@@ -135,8 +139,30 @@ app.get("/about", function(req, res){
 });
 
 
+app.get(
+  "/registrants",
+  basic.check((req, res) => {
+    User.find()
+      .then((user) => {
+        res.render("registrants", {
+          title: "Registrants",
+          user:user  
+        });
+      })
+      .catch(() => {
+        res.send("Sorry! Something went wrong.");
+      });
+  })
+);
 
-/*Port*/
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
-});
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    req.isLogged = true;
+    return next();
+  }
+  res.redirect("/registrants");
+}
+
+
+
+module.exports = app;
