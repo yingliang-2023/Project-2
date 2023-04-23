@@ -1,8 +1,13 @@
 $color_1: #1933b7;
 $color_2: #fff;
-$background-color_1: #5e6bae;
+$color_3: red;
+$background-color_1: #8a97d9;
+$background-color_2: #5e6bae;
 
-
+/*form*/
+/*Home Page*/
+/*About Page*/
+/*Registrant*/
 html {
 	min-height: 100%;
 	position: relative;
@@ -24,7 +29,10 @@ html {
 	li {
 		a {
 			&:hover {
-				color: $color_1 !important;
+				color: $color_1;
+			}
+			&:active {
+				background-color: $background-color_1 !important;
 			}
 		}
 	}
@@ -38,7 +46,7 @@ html {
 	bottom: 0;
 	width: 100%;
 	height: 60px;
-	background-color: $background-color_1;
+	background-color: $background-color_2;
 	p {
 		margin-top: 25px;
 		font-size: 12px;
@@ -65,6 +73,10 @@ label {
 		margin-top: 0;
 		margin-bottom: 10%;
 	}
+}
+.warning {
+	margin-top: 5px;
+	color: $color_3;
 }
 .welcome {
 	h1 {

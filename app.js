@@ -88,20 +88,23 @@ app.get("/", function(req, res){
 
 /*Register Page*/
 app.get("/register", function(req, res){
-  res.render("register");
+  res.render("register",{
+    requirements: ""
+  });
 });
 
 
 app.post("/register", 
 [
-  check('username').isLength({min:1}).withMessage('Please enter your name'),
+  check('username').isLength({min:6}).withMessage('Please enter your name'),
+  check('password').isLength({min:6}).withMessage('Please enter your password')
 ],
 
 function(req,res){
   const errors=validationResult(req);
   console.log(errors);
   if(errors.isEmpty()) {
-    User.register({username:req.body.username,bio:req.body.bio},req.body.password, function(err,user){
+        User.register({username:req.body.username,bio:req.body.bio},req.body.password, function(err,user){
       if(err){
         console.log(err);
       }else{
@@ -110,7 +113,10 @@ function(req,res){
       }
     })
 }else{
-  res.redirect('/register')
+    res.render('register',{
+      requirements:"*Username & password must be 6 characters long."
+  })
+  
 }
 });
 

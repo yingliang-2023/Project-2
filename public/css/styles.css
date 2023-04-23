@@ -17,9 +17,12 @@ html {
     letter-spacing: 5px;
 }
 .navbar-nav  li a:hover {
-    color: #1933b7 !important;
+    color: #1933b7;
 }
 
+.navbar-nav  li a:active {
+  background-color: #8a97d9 !important;
+}
 .footer-padding {
 	padding-bottom: 60px;
 }
@@ -62,7 +65,10 @@ input,label{
 
 }
 
-
+.warning{
+  margin-top: 5px;
+  color:red;
+}
 
 /*Home Page*/
 .welcome h1{
